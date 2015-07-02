@@ -44,22 +44,19 @@ var moztrack = moztrack || {};
 		content.appendChild(Div({}, ["Episode count: " + episodeNum]));
 		perEpisode = (endDate - startDate) / episodeNum;
 		content.appendChild(Div({}, [((perEpisode / (60 * 1000)) +  " minutes per episode")]));
+		content.appendChild(Div({}, ["Episode length overridden to: 19.525"]));
 		
 		showTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
-			moztrack.getRealTime(date, function(date){
-				realTime.value = date.format("Y-m-d H:i:s");
-			});
+			moztrack.getRealTime(date);
 		}});
 		
 		realTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
-			moztrack.getShowTime(date, function(date){
-				showTime.value = date.format("Y-m-d H:i:s");
-			});
+			moztrack.getShowTime(date);
 		}});
 		
-		content.appendChild(Div({},[
+		content.appendChild(Div({"style":"margin-top:25px;"},[
 			Div({},[
 				"Show Time: ", showTime,
 				"Real Time: ", realTime
@@ -67,6 +64,12 @@ var moztrack = moztrack || {};
 			Elm("button", {"type":"button"}, ["Reset Local Storage"], {"onclick":moztrack.clearLocalStorage}),
 			progress
 		]));
+		content.appendChild(Div({"style":"margin-top:25px;"},[
+			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time."
+		]));
+		
+		realTime.value = new Date().format("Y-m-d H:i:s");
+		moztrack.getShowTime(new Date());
 	});
 	moztrack.createLocalStorage = function(){
 		db = openDatabase('moztrack', '0.1', 'Daily show episodes', 1*1024*1024);
@@ -178,7 +181,7 @@ var moztrack = moztrack || {};
 			return;
 		}
 		db.transaction(function(tx){
-			tx.executeSql("SELECT * FROM episodes WHERE realtime > ? ORDER BY date LIMIT 1", [date.getTime()],
+			tx.executeSql("SELECT * FROM episodes WHERE realtime < ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
