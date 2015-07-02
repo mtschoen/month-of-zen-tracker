@@ -166,7 +166,6 @@ var moztrack = moztrack || {};
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE date > ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
-				console.log(results);
 				if(results.rows.length > 0){
 					progress.innerHTML = "Guest: " + results.rows[0].guest;
 					realTime.value = new Date(results.rows[0].realtime).format("Y-m-d H:i:s");
@@ -188,7 +187,6 @@ var moztrack = moztrack || {};
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE realtime < ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
-				console.log(results);
 				if(results.rows.length > 0){
 					progress.innerHTML = "Guest: " + results.rows[0].guest;
 					showTime.value = new Date(results.rows[0].date).format("Y-m-d H:i:s");
