@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <title>Month-of-zen-tracker by mtschoen</title>
   </head>
@@ -32,9 +31,12 @@
 <a id="month-of-zen-tracker" class="anchor" href="#month-of-zen-tracker" aria-hidden="true"><span class="octicon octicon-link"></span></a>month-of-zen-tracker</h1>
 
 <p>A quick script to figure out when different episodes of The Daily Show might come up during the Month of Zen</p>
+	<div id="moztrack-content"></div>
       </section>
     </div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/common.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -46,5 +48,6 @@
             } catch(err) {}
           </script>
 
+	<div id="hidden" style="display:none;"></div>
   </body>
 </html>
