@@ -158,11 +158,11 @@ var moztrack = moztrack || {};
 	moztrack.getRealTime = function(date){
 		if(date < showStartDate || date > showEndDate){
 			console.log("Invalid show date: ", date, showStartDate);
-			ga('send', 'getRealTimeInvalid', date.format("Y-m-d H:i:s"));
+			ga('send', 'event', 'getRealTimeInvalid', date.format("Y-m-d H:i:s"));
 			return;
 		}
-		ga('send', 'getRealTime', date.format("Y-m-d"));
-		ga('send', 'getRealTimeFull', date.format("Y-m-d H:i:s"));
+		ga('send', 'event', 'getRealTime', date.format("Y-m-d"));
+		ga('send', 'event', 'getRealTimeFull', date.format("Y-m-d H:i:s"));
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE date >= ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
@@ -182,10 +182,10 @@ var moztrack = moztrack || {};
 	moztrack.getShowTime = function(date){
 		if(date < startDate || date > endDate){
 			console.log("Invalid real date");
-			ga('send', 'getShowTimeInvalid', date.format("Y-m-d H:i:s"));
+			ga('send', 'event', 'getShowTimeInvalid', date.format("Y-m-d H:i:s"));
 			return;
 		}
-		ga('send', 'getShowTimeFull', date.format("Y-m-d H:i:s"));
+		ga('send', 'event', 'getShowTimeFull', date.format("Y-m-d H:i:s"));
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE realtime <= ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
