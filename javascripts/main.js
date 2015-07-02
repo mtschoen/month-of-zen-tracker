@@ -16,9 +16,11 @@ var moztrack = moztrack || {};
 	var episodeNum = 2659;
 	
 	var showStartDate = new Date(1999, 0, 11);
-	var showEndDate = new Date(2015, 7, 6);
+	var showEndDate = new Date(2015, 8, 6);
 	
 	var showTime, realTime;
+	
+	var perEpisode = 28;
 	
 	/**
 	 * json lists of episodes (by year) Data copied from Wikipedia, and converted with
@@ -32,15 +34,16 @@ var moztrack = moztrack || {};
 		//Setup local DB
 		moztrack.createLocalStorage();
 		
-		console.log("Stream started at ", startDate);
-		console.log("Stream ends at ", endDate);
-		console.log("Stream duration: ", (endDate - startDate) / (60 * 60 * 1000), " hours");
-		var perEpisode = (endDate - startDate) / episodeNum;
-		console.log((perEpisode / (60 * 1000)) +  " minutes per episode");
-		
 		//Create tracker
 		var content = document.getElementById("moztrack-content");
 		progress = Div();
+		
+		content.appendChild(Div({}, ["Stream started at " + startDate]));
+		content.appendChild(Div({}, ["Stream ends at " + endDate]));
+		content.appendChild(Div({}, ["Stream duration: " + (endDate - startDate) / (60 * 60 * 1000), " hours"]));
+		content.appendChild(Div({}, ["Episode count: " + episodeNum]));
+		perEpisode = (endDate - startDate) / episodeNum;
+		content.appendChild(Div({}, [((perEpisode / (60 * 1000)) +  " minutes per episode")]));
 		
 		showTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
@@ -79,9 +82,12 @@ var moztrack = moztrack || {};
 							//"url":"http://mtschoen.github.io/month-of-zen-tracker/episodes/" + 1999 + ".json",
 							//"url":"episodes/" + episodeLists[i] + ".json",
 							"crossDomain":true,
+							"async":false,
 							"success":function(data){
 								episodeNum = data.length - 1;	//-1 for sept11
 								var perEpisode = (endDate - startDate) / episodeNum;
+								
+								perEpisode = 19.525 * 60 * 1000;
 								var streamTime = 0;
 								var query = "INSERT INTO episodes (guest,date,realtime) VALUES (?,?,?)";
 								episodeNum = 0;
@@ -93,8 +99,8 @@ var moztrack = moztrack || {};
 									
 									progress.innerHTML = j;
 									
-									var realtime = new Date(startDate.getTime() + streamTime);
-									tx.executeSql(query, [data[j].guest, data[j].date.format("Y-m-d"), realtime],
+									var realtime = startDate.getTime() + streamTime;
+									tx.executeSql(query, [data[j].guest, data[j].date.getTime(), realtime],
 										function(tx, results){
 											
 										},
@@ -151,12 +157,11 @@ var moztrack = moztrack || {};
 			return;
 		}
 		db.transaction(function(tx){
-			tx.executeSql("SELECT * FROM episodes WHERE date = ?", [date.format("Y-m-d")],
+			tx.executeSql("SELECT * FROM episodes WHERE date > ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
-					//realTime.value = new Date(startDate.getTime() + results.rows[0].startms).format("Y-m-d H:i:s");
-					realTime.value = results.rows[0].realtime;
+					realTime.value = new Date(results.rows[0].realtime).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
 				}
@@ -173,11 +178,11 @@ var moztrack = moztrack || {};
 			return;
 		}
 		db.transaction(function(tx){
-			tx.executeSql("SELECT * FROM episodes WHERE date = ?", [date.format("Y-m-d")],
+			tx.executeSql("SELECT * FROM episodes WHERE realtime > ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
-					realTime.value = new Date(startDate.getTime() + results.rows[0].startms).format("Y-m-d H:i:s");
+					showTime.value = new Date(results.rows[0].date).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
 				}
