@@ -7,7 +7,6 @@
  */
 var moztrack = moztrack || {};
 (function(){
-	var db;
 	var progress;
 	
 	var startDate = new Date(2015, 5, 27, 12);
@@ -21,15 +20,8 @@ var moztrack = moztrack || {};
 	var showTime, realTime;
 	
 	var perEpisode = 28;
-	var perEpisodeOverride = 19.526;
-	
-	/**
-	 * json lists of episodes (by year) Data copied from Wikipedia, and converted with
-	 * Google Docs and http://www.convertcsv.com/csv-to-json.htm
-	 */
-	var episodeLists = [
-		"1999"
-	];
+	var perEpisodeOverride = 24;
+	moztrack.startOverride = new Date(2015,5,26,11,30);
 	
 	$(document).ready(function() {
 		//Setup local DB
@@ -46,6 +38,7 @@ var moztrack = moztrack || {};
 		perEpisode = (endDate - startDate) / episodeNum;
 		content.appendChild(Div({}, ["Computed " + ((perEpisode / (60 * 1000)) +  " minutes per episode")]));
 		content.appendChild(Div({}, ["Episode length overridden to: " + perEpisodeOverride]));
+		content.appendChild(Div({}, ["Using start time: " + moztrack.startOverride]));
 		
 		showTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
@@ -69,14 +62,17 @@ var moztrack = moztrack || {};
 			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!"
 		]));
 		
-		realTime.value = new Date().format("Y-m-d H:i:s");
-		moztrack.getShowTime(new Date());
+		//start on a delay for the first load
+		setTimeout(function(){
+			realTime.value = new Date().format("Y-m-d H:i:s");
+			moztrack.getShowTime(new Date());
+		}, 1500);
 	});
 	moztrack.createLocalStorage = function(){
-		db = openDatabase('moztrack', '0.1', 'Daily show episodes', 1*1024*1024);
+		moztrack.db = openDatabase('moztrack', '0.1', 'Daily show episodes', 1*1024*1024);
 		//If table exists, assume we've done this before
-		doIfTableNotExist(db, "episodes", function(){
-			db.transaction(function(tx){
+		doIfTableNotExist(moztrack.db, "episodes", function(){
+			moztrack.db.transaction(function(tx){
 				tx.executeSql('CREATE TABLE IF NOT EXISTS "episodes" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "guest" VARCHAR, "date" DATETIME NOT NULL, "realtime" DATETIME NOT NULL );', [],
 					function(tx, results){
 						//TODO: non-blocking solution
@@ -95,6 +91,7 @@ var moztrack = moztrack || {};
 								var streamTime = 0;
 								var query = "INSERT INTO episodes (guest,date,realtime) VALUES (?,?,?)";
 								episodeNum = 0;
+								console.log(moztrack.startOverride);
 								for(var j in data){
 									if(data[j].extra == "sept11")
 										continue;
@@ -103,7 +100,7 @@ var moztrack = moztrack || {};
 									
 									progress.innerHTML = j;
 									
-									var realtime = startDate.getTime() + streamTime;
+									var realtime = moztrack.startOverride.getTime() + streamTime;
 									tx.executeSql(query, [data[j].guest, data[j].date.getTime(), realtime],
 										function(tx, results){
 											
@@ -129,7 +126,7 @@ var moztrack = moztrack || {};
 		});
 	};
 	moztrack.clearLocalStorage = function(){
-		db.transaction(function(tx){
+		moztrack.db.transaction(function(tx){
 			tx.executeSql("DROP TABLE IF EXISTS episodes;",[],
 			function(){
 				
@@ -139,6 +136,10 @@ var moztrack = moztrack || {};
 			});
 		});
 		moztrack.createLocalStorage();
+		setTimeout(function(){
+			realTime.value = new Date().format("Y-m-d H:i:s");
+			moztrack.getShowTime(new Date());
+		}, 1000);
 	};
 	
 	function doIfTableNotExist(db, table, callback){
@@ -160,12 +161,12 @@ var moztrack = moztrack || {};
 			console.log("Invalid show date: ", date, showStartDate);
 			return;
 		}
-		db.transaction(function(tx){
+		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE date > ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
-					progress.innerHTML = results.rows[0].guest;
+					progress.innerHTML = "Guest: " + results.rows[0].guest;
 					realTime.value = new Date(results.rows[0].realtime).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
@@ -182,12 +183,12 @@ var moztrack = moztrack || {};
 			console.log("Invalid real date");
 			return;
 		}
-		db.transaction(function(tx){
+		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE realtime < ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
-					progress.innerHTML = results.rows[0].guest;
+					progress.innerHTML = "Guest: " + results.rows[0].guest;
 					showTime.value = new Date(results.rows[0].date).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
@@ -197,6 +198,6 @@ var moztrack = moztrack || {};
 				console.log(error);
 				throw error;
 			});
-		})
+		});
 	};
 })();
