@@ -1,0 +1,962 @@
+[
+  {
+    "id":387,
+    "date":"11-Jan",
+    "guest":"Michael J. Fox",
+    "promotion":"Spin City"
+  },
+  {
+    "id":388,
+    "date":"12-Jan",
+    "guest":"Sandra Bernhard",
+    "promotion":""
+  },
+  {
+    "id":389,
+    "date":"13-Jan",
+    "guest":"Tracey Ullman",
+    "promotion":""
+  },
+  {
+    "id":390,
+    "date":"14-Jan",
+    "guest":"Gillian Anderson",
+    "promotion":"The X-Files and Playing by Heart"
+  },
+  {
+    "id":391,
+    "date":"18-Jan",
+    "guest":"David Alan Grier",
+    "promotion":""
+  },
+  {
+    "id":392,
+    "date":"19-Jan",
+    "guest":"William Baldwin",
+    "promotion":"Virus"
+  },
+  {
+    "id":393,
+    "date":"20-Jan",
+    "guest":"Michael Stipe",
+    "promotion":""
+  },
+  {
+    "id":394,
+    "date":"21-Jan",
+    "guest":"Carmen Electra",
+    "promotion":""
+  },
+  {
+    "id":395,
+    "date":"25-Jan",
+    "guest":"Matthew Lillard",
+    "promotion":"Dead Man's Curve"
+  },
+  {
+    "id":396,
+    "date":"26-Jan",
+    "guest":"David Cross",
+    "promotion":""
+  },
+  {
+    "id":397,
+    "date":"27-Jan",
+    "guest":"Yasmine Bleeth",
+    "promotion":"Nash Bridges"
+  },
+  {
+    "id":398,
+    "date":"28-Jan",
+    "guest":"D. L. Hughley",
+    "promotion":"The Hughleys"
+  },
+  {
+    "id":399,
+    "date":"1-Feb",
+    "guest":"George Carlin",
+    "promotion":"You Are All Diseased"
+  },
+  {
+    "id":400,
+    "date":"2-Feb",
+    "guest":"Dave Foley",
+    "promotion":"NewsRadio"
+  },
+  {
+    "id":401,
+    "date":"3-Feb",
+    "guest":"Kellie Martin",
+    "promotion":"ER"
+  },
+  {
+    "id":402,
+    "date":"4-Feb",
+    "guest":"Jerry O'Connell",
+    "promotion":"The '60s"
+  },
+  {
+    "id":403,
+    "date":"8-Feb",
+    "guest":"Melissa Gilbert",
+    "promotion":"Murder at 75 Birch"
+  },
+  {
+    "id":404,
+    "date":"9-Feb",
+    "guest":"Brendan Fraser",
+    "promotion":"Blast from the Past"
+  },
+  {
+    "id":405,
+    "date":"10-Feb",
+    "guest":"Pamela Anderson, Natalie Raitano, Molly Culver",
+    "promotion":"V.I.P."
+  },
+  {
+    "id":406,
+    "date":"11-Feb",
+    "guest":"Daniel Stern",
+    "promotion":"Dilbert"
+  },
+  {
+    "id":407,
+    "date":"16-Feb",
+    "guest":"Melina Kanakaredes",
+    "promotion":"Providence"
+  },
+  {
+    "id":408,
+    "date":"17-Feb",
+    "guest":"Ed McMahon",
+    "promotion":""
+  },
+  {
+    "id":409,
+    "date":"18-Feb",
+    "guest":"Mike Judge",
+    "promotion":"Office Space"
+  },
+  {
+    "id":410,
+    "date":"1-Mar",
+    "guest":"John Tesh",
+    "promotion":"One World"
+  },
+  {
+    "id":411,
+    "date":"2-Mar",
+    "guest":"Eric McCormack",
+    "promotion":"Will & Grace"
+  },
+  {
+    "id":412,
+    "date":"3-Mar",
+    "guest":"Jeri Ryan",
+    "promotion":"Star Trek: Voyager"
+  },
+  {
+    "id":413,
+    "date":"4-Mar",
+    "guest":"Ryan Phillippe",
+    "promotion":"Cruel Intentions"
+  },
+  {
+    "id":414,
+    "date":"8-Mar",
+    "guest":"Ian McKellen",
+    "promotion":"Gods and Monsters"
+  },
+  {
+    "id":415,
+    "date":"9-Mar",
+    "guest":"Jon Voight",
+    "promotion":"Baby Geniuses"
+  },
+  {
+    "id":416,
+    "date":"10-Mar",
+    "guest":"Sammy Hagar",
+    "promotion":"Album Red Voodoo"
+  },
+  {
+    "id":417,
+    "date":"11-Mar",
+    "guest":"Hootie & the Blowfish, Billy Crystal",
+    "promotion":"Album Musical Chairs"
+  },
+  {
+    "id":418,
+    "date":"15-Mar",
+    "guest":"Peter Krause",
+    "promotion":"Sports Night"
+  },
+  {
+    "id":419,
+    "date":"16-Mar",
+    "guest":"Chris Isaak",
+    "promotion":"Album Speak of the Devil"
+  },
+  {
+    "id":420,
+    "date":"17-Mar",
+    "guest":"Frank DeCaro's Oscar Special,John Larroquette",
+    "promotion":"Payne"
+  },
+  {
+    "id":421,
+    "date":"18-Mar",
+    "guest":"Joseph Gordon-Levitt",
+    "promotion":"10 Things I Hate About You"
+  },
+  {
+    "id":422,
+    "date":"22-Mar",
+    "guest":"Jennifer Grey",
+    "promotion":"TV series It's Like, You Know..."
+  },
+  {
+    "id":423,
+    "date":"23-Mar",
+    "guest":"Norm Macdonald",
+    "promotion":"The Norm Show"
+  },
+  {
+    "id":424,
+    "date":"24-Mar",
+    "guest":"Sandra Bullock",
+    "promotion":"Forces of Nature"
+  },
+  {
+    "id":425,
+    "date":"25-Mar",
+    "guest":"Janine Turner",
+    "promotion":"Fatal Error"
+  },
+  {
+    "id":426,
+    "date":"29-Mar",
+    "guest":"Ron Howard",
+    "promotion":"EDtv"
+  },
+  {
+    "id":427,
+    "date":"30-Mar",
+    "guest":"Omar Epps",
+    "promotion":"The Mod Squad"
+  },
+  {
+    "id":428,
+    "date":"31-Mar",
+    "guest":"Diane Lane",
+    "promotion":"A Walk on the Moon"
+  },
+  {
+    "id":429,
+    "date":"1-Apr",
+    "guest":"Stephen Baldwin",
+    "promotion":"Friends & Lovers"
+  },
+  {
+    "id":430,
+    "date":"12-Apr",
+    "guest":"Ernie Hudson",
+    "promotion":"Michael Jordan: An American Hero"
+  },
+  {
+    "id":431,
+    "date":"13-Apr",
+    "guest":"Josh Charles",
+    "promotion":"Sports Night"
+  },
+  {
+    "id":432,
+    "date":"14-Apr",
+    "guest":"Jackie Chan",
+    "promotion":"Twin Dragons"
+  },
+  {
+    "id":433,
+    "date":"15-Apr",
+    "guest":"Marlee Matlin",
+    "promotion":"Freak City"
+  },
+  {
+    "id":434,
+    "date":"19-Apr",
+    "guest":"Sharon Lawrence",
+    "promotion":"NYPD Blue"
+  },
+  {
+    "id":435,
+    "date":"20-Apr",
+    "guest":"Rob Estes",
+    "promotion":"Melrose Place Finale"
+  },
+  {
+    "id":436,
+    "date":"21-Apr",
+    "guest":"Angelina Jolie",
+    "promotion":"Pushing Tin"
+  },
+  {
+    "id":437,
+    "date":"22-Apr",
+    "guest":"David Spade",
+    "promotion":"Lost & Found"
+  },
+  {
+    "id":438,
+    "date":"26-Apr",
+    "guest":"Seth Green",
+    "promotion":"Austin Powers 2 and Idle Hands"
+  },
+  {
+    "id":439,
+    "date":"27-Apr",
+    "guest":"Sheryl Lee Ralph",
+    "promotion":"Producer of Divas Simply Singing"
+  },
+  {
+    "id":440,
+    "date":"28-Apr",
+    "guest":"Chris Robinson",
+    "promotion":""
+  },
+  {
+    "id":441,
+    "date":"29-Apr",
+    "guest":"Joy Behar",
+    "promotion":"Book Joy Shtick and The View"
+  },
+  {
+    "id":442,
+    "date":"10-May",
+    "guest":"Thomas Gibson",
+    "promotion":"Dharma & Greg"
+  },
+  {
+    "id":443,
+    "date":"11-May",
+    "guest":"Paula Cale",
+    "promotion":"Providence"
+  },
+  {
+    "id":444,
+    "date":"12-May",
+    "guest":"Ted Danson",
+    "promotion":"Becker"
+  },
+  {
+    "id":445,
+    "date":"13-May",
+    "guest":"Esai Morales",
+    "promotion":"Atomic Train"
+  },
+  {
+    "id":446,
+    "date":"17-May",
+    "guest":"Jane Seymour",
+    "promotion":"Dr. Quinn, Medicine Woman"
+  },
+  {
+    "id":447,
+    "date":"18-May",
+    "guest":"Robert Schimmel",
+    "promotion":""
+  },
+  {
+    "id":448,
+    "date":"19-May",
+    "guest":"Camryn Manheim",
+    "promotion":"Book \"Wake Up, I'm Fat!\""
+  },
+  {
+    "id":449,
+    "date":"20-May",
+    "guest":"Ray Romano",
+    "promotion":"Everybody Loves Raymond"
+  },
+  {
+    "id":450,
+    "date":"24-May",
+    "guest":"Patricia Richardson",
+    "promotion":"Home Improvement"
+  },
+  {
+    "id":451,
+    "date":"25-May",
+    "guest":"Suzanne Somers",
+    "promotion":"Book \"Suzanne Somers' Get Skinny on Fabulous Food\""
+  },
+  {
+    "id":452,
+    "date":"26-May",
+    "guest":"Natalie Portman",
+    "promotion":"Star Wars: Episode I"
+  },
+  {
+    "id":453,
+    "date":"27-May",
+    "guest":"Jamie Foxx",
+    "promotion":"Any Given Sunday"
+  },
+  {
+    "id":454,
+    "date":"7-Jun",
+    "guest":"Harry Connick Jr.",
+    "promotion":"Album Come by Me"
+  },
+  {
+    "id":455,
+    "date":"8-Jun",
+    "guest":"Caroline Rhea",
+    "promotion":"Sabrina, the Teenage Witch"
+  },
+  {
+    "id":456,
+    "date":"9-Jun",
+    "guest":"Damon Wayans",
+    "promotion":"Book Bootleg"
+  },
+  {
+    "id":457,
+    "date":"10-Jun",
+    "guest":"Timothy Hutton",
+    "promotion":"The General's Daughter"
+  },
+  {
+    "id":458,
+    "date":"14-Jun",
+    "guest":"Mike Myers",
+    "promotion":"Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "id":459,
+    "date":"15-Jun",
+    "guest":"Rob Lowe",
+    "promotion":"Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "id":460,
+    "date":"16-Jun",
+    "guest":"Mike Myers",
+    "promotion":"Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "id":461,
+    "date":"17-Jun",
+    "guest":"Heather Graham",
+    "promotion":"Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "id":462,
+    "date":"21-Jun",
+    "guest":"Felicity Huffman",
+    "promotion":"Play \"Boston Marriage\" and Sports Night"
+  },
+  {
+    "id":463,
+    "date":"22-Jun",
+    "guest":"Jimmy Kimmel",
+    "promotion":"The Man Show"
+  },
+  {
+    "id":464,
+    "date":"23-Jun",
+    "guest":"Adam Sandler",
+    "promotion":"Big Daddy"
+  },
+  {
+    "id":465,
+    "date":"24-Jun",
+    "guest":"Richard Belzer",
+    "promotion":"Book \"UFOs, JFK, and Elvis: Conspiracies You Don't Have to be Crazy to Believe\""
+  },
+  {
+    "id":466,
+    "date":"28-Jun",
+    "guest":"Margaret Cho",
+    "promotion":"Show \"I'm the One That I Want\""
+  },
+  {
+    "id":467,
+    "date":"29-Jun",
+    "guest":"Scott Wolf",
+    "promotion":"Broadway show Side Man"
+  },
+  {
+    "id":468,
+    "date":"30-Jun",
+    "guest":"Roseanne Barr",
+    "promotion":""
+  },
+  {
+    "id":469,
+    "date":"1-Jul",
+    "guest":"Rob Schneider",
+    "promotion":"Big Daddy"
+  },
+  {
+    "id":470,
+    "date":"12-Jul",
+    "guest":"Adam Arkin",
+    "promotion":"Chicago Hope"
+  },
+  {
+    "id":471,
+    "date":"13-Jul",
+    "guest":"Miss Piggy",
+    "promotion":"Muppets From Space"
+  },
+  {
+    "id":472,
+    "date":"14-Jul",
+    "guest":"John Leguizamo",
+    "promotion":"Summer of Sam"
+  },
+  {
+    "id":473,
+    "date":"15-Jul",
+    "guest":"Robert Klein",
+    "promotion":""
+  },
+  {
+    "id":474,
+    "date":"19-Jul",
+    "guest":"Christa Miller",
+    "promotion":"The Drew Carey Show"
+  },
+  {
+    "id":475,
+    "date":"20-Jul",
+    "guest":"David Brenner",
+    "promotion":""
+  },
+  {
+    "id":476,
+    "date":"21-Jul",
+    "guest":"Third Anniversary Special",
+    "promotion":""
+  },
+  {
+    "id":477,
+    "date":"22-Jul",
+    "guest":"Joely Fisher",
+    "promotion":"Inspector Gadget and Cabaret"
+  },
+  {
+    "id":478,
+    "date":"26-Jul",
+    "guest":"Donny Osmond",
+    "promotion":"Book \"Life is just what you make it\""
+  },
+  {
+    "id":479,
+    "date":"27-Jul",
+    "guest":"Wendie Malick",
+    "promotion":"Just Shoot Me!"
+  },
+  {
+    "id":480,
+    "date":"28-Jul",
+    "guest":"Vince Neil",
+    "promotion":""
+  },
+  {
+    "id":481,
+    "date":"29-Jul",
+    "guest":"Janeane Garofalo",
+    "promotion":"Mystery Men"
+  },
+  {
+    "id":482,
+    "date":"2-Aug",
+    "guest":"Bebe Neuwirth",
+    "promotion":"Summer of Sam"
+  },
+  {
+    "id":483,
+    "date":"3-Aug",
+    "guest":"Garry Marshall",
+    "promotion":"Runaway Bride"
+  },
+  {
+    "id":484,
+    "date":"4-Aug",
+    "guest":"Denis Leary",
+    "promotion":"Thomas Crown Affair"
+  },
+  {
+    "id":485,
+    "date":"5-Aug",
+    "guest":"Jeffrey Tambor",
+    "promotion":"Teaching Mrs. Tingle"
+  },
+  {
+    "id":486,
+    "date":"9-Aug",
+    "guest":"Dave Foley",
+    "promotion":"Dick"
+  },
+  {
+    "id":487,
+    "date":"10-Aug",
+    "guest":"Dom Irrera",
+    "promotion":""
+  },
+  {
+    "id":488,
+    "date":"11-Aug",
+    "guest":"Pierce Brosnan",
+    "promotion":"Thomas Crown Affair"
+  },
+  {
+    "id":489,
+    "date":"12-Aug",
+    "guest":"Eduardo Sanchez and Daniel Myrick",
+    "promotion":"The Blair Witch Project"
+  },
+  {
+    "id":490,
+    "date":"16-Aug",
+    "guest":"Carson Daly",
+    "promotion":""
+  },
+  {
+    "id":491,
+    "date":"17-Aug",
+    "guest":"Molly Ringwald",
+    "promotion":"Teaching Mrs. Tingle"
+  },
+  {
+    "id":492,
+    "date":"18-Aug",
+    "guest":"Sarah Jessica Parker",
+    "promotion":"Sex and the City"
+  },
+  {
+    "id":493,
+    "date":"19-Aug",
+    "guest":"French Stewart",
+    "promotion":"Love Stinks"
+  },
+  {
+    "id":494,
+    "date":"23-Aug",
+    "guest":"Cheryl Ladd",
+    "promotion":"A Dog of Flanders"
+  },
+  {
+    "id":495,
+    "date":"24-Aug",
+    "guest":"LL Cool J",
+    "promotion":"In Too Deep"
+  },
+  {
+    "id":496,
+    "date":"25-Aug",
+    "guest":"Dwight Yoakam",
+    "promotion":""
+  },
+  {
+    "id":497,
+    "date":"26-Aug",
+    "guest":"Nia Long",
+    "promotion":""
+  },
+  {
+    "id":498,
+    "date":"30-Aug",
+    "guest":"The Daily Show Summer Spectacular",
+    "promotion":""
+  },
+  {
+    "id":499,
+    "date":"13-Sep",
+    "guest":"Elayne Boosler",
+    "promotion":""
+  },
+  {
+    "id":500,
+    "date":"14-Sep",
+    "guest":"Tom Green",
+    "promotion":"First TDS broadcast in Canada"
+  },
+  {
+    "id":501,
+    "date":"15-Sep",
+    "guest":"Jason Priestley",
+    "promotion":""
+  },
+  {
+    "id":502,
+    "date":"16-Sep",
+    "guest":"David Cross",
+    "promotion":"David Cross: The Pride Is Back"
+  },
+  {
+    "id":503,
+    "date":"20-Sep",
+    "guest":"Andy Richter",
+    "promotion":""
+  },
+  {
+    "id":504,
+    "date":"21-Sep",
+    "guest":"Donny Osmond,Marie Osmond",
+    "promotion":""
+  },
+  {
+    "id":505,
+    "date":"22-Sep",
+    "guest":"Dave Chappelle",
+    "promotion":""
+  },
+  {
+    "id":506,
+    "date":"23-Sep",
+    "guest":"Steve Zahn",
+    "promotion":""
+  },
+  {
+    "id":507,
+    "date":"27-Sep",
+    "guest":"Norm Macdonald",
+    "promotion":""
+  },
+  {
+    "id":508,
+    "date":"28-Sep",
+    "guest":"Melissa Joan Hart",
+    "promotion":"Drive Me Crazy"
+  },
+  {
+    "id":509,
+    "date":"29-Sep",
+    "guest":"Richard Lewis",
+    "promotion":""
+  },
+  {
+    "id":510,
+    "date":"30-Sep",
+    "guest":"Bruce McCulloch and Mark McKinney",
+    "promotion":""
+  },
+  {
+    "id":511,
+    "date":"4-Oct",
+    "guest":"Greg Proops",
+    "promotion":""
+  },
+  {
+    "id":512,
+    "date":"5-Oct",
+    "guest":"Maury Povich",
+    "promotion":""
+  },
+  {
+    "id":513,
+    "date":"6-Oct",
+    "guest":"Brooke Shields",
+    "promotion":""
+  },
+  {
+    "id":514,
+    "date":"7-Oct",
+    "guest":"Molly Shannon",
+    "promotion":"Superstar"
+  },
+  {
+    "id":515,
+    "date":"18-Oct",
+    "guest":"Rebecca Gayheart",
+    "promotion":""
+  },
+  {
+    "id":516,
+    "date":"19-Oct",
+    "guest":"Steven Wright",
+    "promotion":""
+  },
+  {
+    "id":517,
+    "date":"20-Oct",
+    "guest":"Amy Brenneman",
+    "promotion":"Judging Amy"
+  },
+  {
+    "id":518,
+    "date":"21-Oct",
+    "guest":"Melissa Gilbert",
+    "promotion":""
+  },
+  {
+    "id":519,
+    "date":"25-Oct",
+    "guest":"Cathy Moriarty",
+    "promotion":"Crazy in Alabama"
+  },
+  {
+    "id":520,
+    "date":"26-Oct",
+    "guest":"Louie Anderson",
+    "promotion":"Family Feud"
+  },
+  {
+    "id":521,
+    "date":"27-Oct",
+    "guest":"Sarah Michelle Gellar",
+    "promotion":""
+  },
+  {
+    "id":522,
+    "date":"28-Oct",
+    "guest":"Melanie C",
+    "promotion":"Northern Star"
+  },
+  {
+    "id":523,
+    "date":"1-Nov",
+    "guest":"Chris O'Donnell",
+    "promotion":"The Bachelor"
+  },
+  {
+    "id":524,
+    "date":"2-Nov",
+    "guest":"Jennifer Love Hewitt",
+    "promotion":"Time of Your Life"
+  },
+  {
+    "id":525,
+    "date":"3-Nov",
+    "guest":"Dave Grohl",
+    "promotion":""
+  },
+  {
+    "id":526,
+    "date":"4-Nov",
+    "guest":"Roshumba Williams",
+    "promotion":""
+  },
+  {
+    "id":527,
+    "date":"8-Nov",
+    "guest":"Kellie Martin",
+    "promotion":""
+  },
+  {
+    "id":528,
+    "date":"9-Nov",
+    "guest":"Kathy Griffin",
+    "promotion":""
+  },
+  {
+    "id":529,
+    "date":"15-Nov",
+    "guest":"Christina Ricci",
+    "promotion":"Sleepy Hollow"
+  },
+  {
+    "id":530,
+    "date":"16-Nov",
+    "guest":"Tori Amos",
+    "promotion":"To Venus And Back"
+  },
+  {
+    "id":531,
+    "date":"17-Nov",
+    "guest":"Yasmine Bleeth",
+    "promotion":""
+  },
+  {
+    "id":532,
+    "date":"18-Nov",
+    "guest":"Bill Maher",
+    "promotion":""
+  },
+  {
+    "id":533,
+    "date":"29-Nov",
+    "guest":"Goo Goo Dolls",
+    "promotion":""
+  },
+  {
+    "id":534,
+    "date":"30-Nov",
+    "guest":"Stephen Rea",
+    "promotion":"The End of the Affair"
+  },
+  {
+    "id":535,
+    "date":"1-Dec",
+    "guest":"Laura San Giacomo",
+    "promotion":""
+  },
+  {
+    "id":536,
+    "date":"2-Dec",
+    "guest":"Michael Boatman",
+    "promotion":""
+  },
+  {
+    "id":537,
+    "date":"6-Dec",
+    "guest":"Paul Rudd",
+    "promotion":""
+  },
+  {
+    "id":538,
+    "date":"7-Dec",
+    "guest":"Senator Bob Dole, part 1",
+    "promotion":""
+  },
+  {
+    "id":539,
+    "date":"8-Dec",
+    "guest":"Senator Bob Dole, part 2",
+    "promotion":""
+  },
+  {
+    "id":540,
+    "date":"9-Dec",
+    "guest":"Rob Schneider",
+    "promotion":"Deuce Bigalow: Male Gigolo"
+  },
+  {
+    "id":541,
+    "date":"13-Dec",
+    "guest":"Joan Lunden",
+    "promotion":""
+  },
+  {
+    "id":542,
+    "date":"14-Dec",
+    "guest":"Shannen Doherty",
+    "promotion":""
+  },
+  {
+    "id":543,
+    "date":"15-Dec",
+    "guest":"Greatest Millennium Special",
+    "promotion":""
+  },
+  {
+    "id":544,
+    "date":"16-Dec",
+    "guest":"George Carlin",
+    "promotion":""
+  },
+  {
+    "id":545,
+    "date":"20-Dec",
+    "guest":"David Boreanaz",
+    "promotion":"Angel TV series"
+  },
+  {
+    "id":546,
+    "date":"21-Dec",
+    "guest":"Jewel",
+    "promotion":"Joy - A Holiday Collection album"
+  }
+]
