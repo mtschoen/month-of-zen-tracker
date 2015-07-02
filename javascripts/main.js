@@ -162,7 +162,7 @@ var moztrack = moztrack || {};
 			return;
 		}
 		ga('send', 'getRealTime', date.format("Y-m-d"));
-		ga('send', 'getRealTimeFull', date.format.format("Y-m-d H:i:s"));
+		ga('send', 'getRealTimeFull', date.format("Y-m-d H:i:s"));
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE date >= ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
