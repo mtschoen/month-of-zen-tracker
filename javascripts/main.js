@@ -10,19 +10,53 @@ var moztrack = moztrack || {};
 	var db;
 	var progress;
 	
+	var startDate = new Date(2015, 6, 27, 12);
+	var endDate = new Date(2015, 8, 6, 19, 17);
+	
+	var episodeNum = 2000;
+	
+	var showStartDate = new Date(1999, 1, 11);
+	var showEndDate = new Date(2015, 8, 6);
+	
 	/**
-	 * json lists of episodes (by year) 
+	 * json lists of episodes (by year) Data copied from Wikipedia, and converted with
+	 * Google Docs and http://www.convertcsv.com/csv-to-json.htm
 	 */
 	var episodeLists = [
 		"1999"
 	];
 	
 	$(document).ready(function() {
+		//Setup local DB
 		moztrack.createLocalStorage();
+		
+		console.log("Stream started at ", startDate);
+		console.log("Stream ends at ", endDate);
+		console.log("Stream duration: ", (endDate - startDate) / (60 * 60 * 1000), " hours");
+		
+		//Create tracker
 		var content = document.getElementById("moztrack-content");
 		progress = Div();
+		
+		var showTime = Input({},[],{"onkeyup":function(){
+			var date = new Date(this.value);
+			moztrack.getRealTime(date, function(date){
+				realTime.value = date.format("Y-m-d H:i:s");
+			});
+		}});
+		
+		var realTime = Input({},[],{"onkeyup":function(){
+			var date = new Date(this.value);
+			moztrack.getShowTime(date, function(date){
+				showTime.value = date.format("Y-m-d H:i:s");
+			});
+		}});
+		
 		content.appendChild(Div({},[
-			"Trakcer goes here",
+			Div({},[
+				"Show Time: ", showTime,
+				"Real Time: ", realTime
+			]),
 			Elm("button", {"type":"button"}, ["Reset Local Storage"], {"onclick":moztrack.clearLocalStorage}),
 			progress
 		]));
@@ -100,4 +134,27 @@ var moztrack = moztrack || {};
 			);
 		});
 	}
+	
+	moztrack.getRealTime = function(date){
+		if(date < showStartDate || date > showEndDate){
+			console.log("Invalid show date");
+			return;
+		}
+		db.transaction(function(tx){
+			tx.executeSQL("SELECT * FROM epixodes WHERE date = ?", [date.format("Y-m-d")],
+			function(tx, results){
+				console.log(results);
+			},
+			function(tx, error){
+				console.log(error);
+				throw error;
+			})
+		});
+	};
+	moztrack.getShowTime = function(date){
+		if(date < startDate || date > endDate){
+			console.log("Invalid real date");
+			return;
+		}
+	};
 })();
