@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: http://mtschoen.github.io/month-of-zen-tracker/sitemap.xml
