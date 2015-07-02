@@ -59,7 +59,9 @@ var moztrack = moztrack || {};
 			progress
 		]));
 		content.appendChild(Div({"style":"margin-top:25px;"},[
-			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!"
+			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!  I've introduced a start offset to try to account for this.  It will probably have to be adjusted over time unless I can fix the dataset.",
+			Br(),
+			"Feel free to ", A({"href":"mailto:matt@matt-schoen.com"}, ["contact me"]), " with questions or corrections, or fork this project on github!"
 		]));
 		
 		//start on a delay for the first load
