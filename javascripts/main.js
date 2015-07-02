@@ -21,6 +21,7 @@ var moztrack = moztrack || {};
 	var showTime, realTime;
 	
 	var perEpisode = 28;
+	var perEpisodeOverride = 19.526;
 	
 	/**
 	 * json lists of episodes (by year) Data copied from Wikipedia, and converted with
@@ -43,8 +44,8 @@ var moztrack = moztrack || {};
 		content.appendChild(Div({}, ["Stream duration: " + (endDate - startDate) / (60 * 60 * 1000), " hours"]));
 		content.appendChild(Div({}, ["Episode count: " + episodeNum]));
 		perEpisode = (endDate - startDate) / episodeNum;
-		content.appendChild(Div({}, [((perEpisode / (60 * 1000)) +  " minutes per episode")]));
-		content.appendChild(Div({}, ["Episode length overridden to: 19.525"]));
+		content.appendChild(Div({}, ["Computed " + ((perEpisode / (60 * 1000)) +  " minutes per episode")]));
+		content.appendChild(Div({}, ["Episode length overridden to: " + perEpisodeOverride]));
 		
 		showTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
@@ -65,7 +66,7 @@ var moztrack = moztrack || {};
 			progress
 		]));
 		content.appendChild(Div({"style":"margin-top:25px;"},[
-			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time."
+			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!"
 		]));
 		
 		realTime.value = new Date().format("Y-m-d H:i:s");
@@ -90,7 +91,7 @@ var moztrack = moztrack || {};
 								episodeNum = data.length - 1;	//-1 for sept11
 								var perEpisode = (endDate - startDate) / episodeNum;
 								
-								perEpisode = 19.525 * 60 * 1000;
+								perEpisode = perEpisodeOverride * 60 * 1000;
 								var streamTime = 0;
 								var query = "INSERT INTO episodes (guest,date,realtime) VALUES (?,?,?)";
 								episodeNum = 0;
@@ -164,6 +165,7 @@ var moztrack = moztrack || {};
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
+					progress.innerHTML = results.rows[0].guest;
 					realTime.value = new Date(results.rows[0].realtime).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
@@ -185,6 +187,7 @@ var moztrack = moztrack || {};
 			function(tx, results){
 				console.log(results);
 				if(results.rows.length > 0){
+					progress.innerHTML = results.rows[0].guest;
 					showTime.value = new Date(results.rows[0].date).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
