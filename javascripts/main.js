@@ -185,7 +185,7 @@ var moztrack = moztrack || {};
 			return;
 		}
 		moztrack.db.transaction(function(tx){
-			tx.executeSql("SELECT * FROM episodes WHERE realtime < ? ORDER BY date DESC LIMIT 1", [date.getTime()],
+			tx.executeSql("SELECT * FROM episodes WHERE realtime <= ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
 				if(results.rows.length > 0){
 					progress.innerHTML = "Guest: " + results.rows[0].guest;
