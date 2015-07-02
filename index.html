@@ -18,8 +18,8 @@
         <h2>A quick script to figure out when different episodes of The Daily Show might come up during the Month of Zen</h2>
 
         <section id="downloads">
-          <a href="https://github.com/mtschoen/month-of-zen-tracker/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/mtschoen/month-of-zen-tracker/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/mtschoen/month-of-zen-tracker/zipball/gh-pages" class="btn">Download as .zip</a>
+          <a href="https://github.com/mtschoen/month-of-zen-tracker/tarball/gh-pages" class="btn">Download as .tar.gz</a>
           <a href="https://github.com/mtschoen/month-of-zen-tracker" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
       </div>
@@ -30,30 +30,31 @@
         <h1>
 <a id="month-of-zen-tracker" class="anchor" href="#month-of-zen-tracker" aria-hidden="true"><span class="octicon octicon-link"></span></a>month-of-zen-tracker</h1>
 	<div id="moztrack-content"></div>
-	<p>A quick script to figure out when different episodes of The Daily Show might come up during the Month of Zen</p>
+	<p>This is quick script to figure out when different episodes of The Daily Show might come up during the Month of Zen</p>
 	<p>The source data is available in a <a href="https://docs.google.com/spreadsheets/d/1Ms_fn981stFyci3_KUW9pOZTZn2vIml_i6CRY7qnrM0/edit?usp=sharing">public google doc</a>, and was sourced from <a href="http://thetvdb.com/?tab=seasonall&id=71256&lid=7">The TV DB</a>, and <a hef="">Wikipedia</a></p>
 	<p>I then converted the sheet to CSV, <a href="http://www.convertcsv.com/csv-to-json.htm">then to JSON</a>, which sits <a href="episodes/all.json">here</a></p>
 	<p>There are undoubtedly issues with this project and I'm pretty sure it will only be accurate if you're on Eastern time.  If anyone cares, I'll try to fix that.</p>
 	<h1>Usage</h1>
 	<p>The tracker starts off showing you the current Real Time and the show that is currently on the stream. Type a date into either field, and the opposite field will update with the corresponding time.</p>
 	<p>Sorry, no firefox support.</p>
-	<p>Finally, for some shameless self-promotion.  My name is <a href="http://matt-schoen.com">Matt Schoen</a>, and aside from being a huge fan of TDS, I also make games and stuff.  You should also check out my company, <a href="http://defectivestudios.com/"></a>Defective Studios</a>!</p>
+	<div style="margin-top:25px;">The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!  I've introduced a start offset to try to account for this.  It will probably have to be adjusted over time unless I can fix the dataset.  The Reset button will rebuild your local database, in case I've changed things, or if you're working on developing the tool.  If the start offset is wrong, try setting a new one in the console by typing something like moztrack.startOverride = new Date(2015,5,26,11,24); to adjust the override, and click Reset Local Storage.  If you see the right show pop up, you have the right offset!<br>Feel free to <a href="mailto:matt@matt-schoen.com">contact me</a> with questions or corrections, or fork this project on github!</div>
+	<p>Finally, for some shameless self-promotion.  My name is <a href="http://matt-schoen.com">Matt Schoen</a>, and aside from being a huge fan of TDS, I also make games and stuff.  You should also check out my company, <a href="http://defectivestudios.com/">Defective Studios</a>!</p>
       </section>
     </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/common.js"></script>
 	<script type="text/javascript" src="javascripts/date.format.js"></script>
 	<script type="text/javascript" src="javascripts/main.js"></script>
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-64689045-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-64689045-1', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
 
   </body>
 </html>

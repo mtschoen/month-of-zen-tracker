@@ -53,15 +53,10 @@ var moztrack = moztrack || {};
 		content.appendChild(Div({"style":"margin-top:25px;"},[
 			Div({},[
 				"Show Time: ", showTime,
-				"Real Time: ", realTime
+				" Real Time: ", realTime
 			]),
 			Elm("button", {"type":"button"}, ["Reset Local Storage"], {"onclick":moztrack.clearLocalStorage}),
 			progress
-		]));
-		content.appendChild(Div({"style":"margin-top:25px;"},[
-			"The math is still not perfect. I'm thinking that they cut some episodes from the stream, or that the problem has something to do with my data set.  We'll see how far off it drifts over time.  I timed the episodes from the stream at 24 minutes even, meaning that about 240 episodes were cut.  But which ones?!  I've introduced a start offset to try to account for this.  It will probably have to be adjusted over time unless I can fix the dataset.",
-			Br(),
-			"Feel free to ", A({"href":"mailto:matt@matt-schoen.com"}, ["contact me"]), " with questions or corrections, or fork this project on github!"
 		]));
 		
 		//start on a delay for the first load
@@ -95,6 +90,7 @@ var moztrack = moztrack || {};
 								episodeNum = 0;
 								console.log(moztrack.startOverride);
 								for(var j in data){
+									//Skip over the unaired sept11 episode
 									if(data[j].extra == "sept11")
 										continue;
 									episodeNum++;
@@ -142,6 +138,7 @@ var moztrack = moztrack || {};
 			realTime.value = new Date().format("Y-m-d H:i:s");
 			moztrack.getShowTime(new Date());
 		}, 1000);
+		ga('send', 'event', 'clearStorage');
 	};
 	
 	function doIfTableNotExist(db, table, callback){
@@ -161,8 +158,11 @@ var moztrack = moztrack || {};
 	moztrack.getRealTime = function(date){
 		if(date < showStartDate || date > showEndDate){
 			console.log("Invalid show date: ", date, showStartDate);
+			ga('send', 'getRealTimeInvalid', date.format("Y-m-d H:i:s"));
 			return;
 		}
+		ga('send', 'getRealTime', date.format("Y-m-d"));
+		ga('send', 'getRealTimeFull', date.format.format("Y-m-d H:i:s"));
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE date >= ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
@@ -182,14 +182,16 @@ var moztrack = moztrack || {};
 	moztrack.getShowTime = function(date){
 		if(date < startDate || date > endDate){
 			console.log("Invalid real date");
+			ga('send', 'getShowTimeInvalid', date.format("Y-m-d H:i:s"));
 			return;
 		}
+		ga('send', 'getShowTimeFull', date.format("Y-m-d H:i:s"));
 		moztrack.db.transaction(function(tx){
 			tx.executeSql("SELECT * FROM episodes WHERE realtime <= ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
 				if(results.rows.length > 0){
 					progress.innerHTML = "Guest: " + results.rows[0].guest;
-					showTime.value = new Date(results.rows[0].date).format("Y-m-d H:i:s");
+					showTime.value = new Date(results.rows[0].date).format("Y-m-d");
 				} else {
 					console.log("no results?");
 				}
