@@ -9,7 +9,7 @@ var moztrack = moztrack || {};
 (function(){
 	var progress;
 	
-	var startDate = new Date(2015, 5, 27, 12);
+	var startDate = new Date(2015, 5, 26, 12);
 	var endDate = new Date(2015, 7, 6, 19, 17);
 	
 	var episodeNum = 2659;
@@ -33,12 +33,16 @@ var moztrack = moztrack || {};
 		
 		content.appendChild(Div({}, ["Stream started at " + startDate]));
 		content.appendChild(Div({}, ["Stream ends at " + endDate]));
-		content.appendChild(Div({}, ["Stream duration: " + (endDate - startDate) / (60 * 60 * 1000), " hours"]));
+		content.appendChild(Div({}, [sprintf("Stream duration: %.2f hours", (endDate - startDate) / (60 * 60 * 1000))]));
 		content.appendChild(Div({}, ["Episode count: " + episodeNum]));
 		perEpisode = (endDate - startDate) / episodeNum;
-		content.appendChild(Div({}, ["Computed " + ((perEpisode / (60 * 1000)) +  " minutes per episode")]));
+		content.appendChild(Div({}, [sprintf("Computed %.2f minutes per episode", ((perEpisode / (60 * 1000))))]));
 		content.appendChild(Div({}, ["Episode length overridden to: " + perEpisodeOverride]));
-		content.appendChild(Div({}, ["Using start time: " + moztrack.startOverride]));
+		var realEpCount = ((endDate - startDate) / (60 * 1000) / perEpisodeOverride);
+		content.appendChild(Div({}, [sprintf("Actual stream length: %.2f episodes", realEpCount)]));
+		content.appendChild(Div({}, [sprintf("Skipped about %.2f episodes", (episodeNum - realEpCount))]));
+		var overDiff = (startDate - moztrack.startOverride) / (24 * 60 * 1000);
+		content.appendChild(Div({}, [sprintf("Start time override: " + moztrack.startOverride + ", which means %.2f/180 skipped episodes so far", overDiff)]));
 		
 		showTime = Input({},[],{"onkeyup":function(){
 			var date = new Date(this.value);
