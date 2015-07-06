@@ -25,7 +25,10 @@ var moztrack = moztrack || {};
 	
 	$(document).ready(function() {
 		//Setup local DB
-		moztrack.createLocalStorage();
+		moztrack.db = openDatabase('moztrack', '0.1', 'Daily show episodes', 1*1024*1024);
+		//moztrack.createLocalStorage();
+		//Screw it, just reset every time
+		moztrack.clearLocalStorage();
 		
 		//Create tracker
 		var content = document.getElementById("moztrack-content");
@@ -64,13 +67,12 @@ var moztrack = moztrack || {};
 		]));
 		
 		//start on a delay for the first load
-		setTimeout(function(){
-			realTime.value = new Date().format("Y-m-d H:i:s");
-			moztrack.getShowTime(new Date());
-		}, 1500);
+		// setTimeout(function(){
+			// realTime.value = new Date().format("Y-m-d H:i:s");
+			// moztrack.getShowTime(new Date());
+		// }, 1500);
 	});
 	moztrack.createLocalStorage = function(){
-		moztrack.db = openDatabase('moztrack', '0.1', 'Daily show episodes', 1*1024*1024);
 		//If table exists, assume we've done this before
 		doIfTableNotExist(moztrack.db, "episodes", function(){
 			moztrack.db.transaction(function(tx){
@@ -171,7 +173,7 @@ var moztrack = moztrack || {};
 			tx.executeSql("SELECT * FROM episodes WHERE date >= ? ORDER BY date LIMIT 1", [date.getTime()],
 			function(tx, results){
 				if(results.rows.length > 0){
-					progress.innerHTML = "Guest: " + results.rows[0].guest;
+					progress.innerHTML = "Guest: <a href='https://www.google.com/search?q=" + results.rows[0].guest + "'>" + results.rows[0].guest + "</a>";
 					realTime.value = new Date(results.rows[0].realtime).format("Y-m-d H:i:s");
 				} else {
 					console.log("no results?");
@@ -194,7 +196,7 @@ var moztrack = moztrack || {};
 			tx.executeSql("SELECT * FROM episodes WHERE realtime <= ? ORDER BY date DESC LIMIT 1", [date.getTime()],
 			function(tx, results){
 				if(results.rows.length > 0){
-					progress.innerHTML = "Guest: " + results.rows[0].guest;
+					progress.innerHTML = "Guest: <a href='https://www.google.com/search?q=" + results.rows[0].guest + "'>" + results.rows[0].guest + "</a>";
 					showTime.value = new Date(results.rows[0].date).format("Y-m-d");
 				} else {
 					console.log("no results?");
