@@ -21,7 +21,7 @@ var moztrack = moztrack || {};
 	
 	var perEpisode = 28;
 	var perEpisodeOverride = 24;
-	moztrack.startOverride = new Date(2015,5,25,20,25);
+	moztrack.startOverride = new Date(2015,5,25,20,0);
 	
 	$(document).ready(function() {
 		//Setup local DB
